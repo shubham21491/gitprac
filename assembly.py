@@ -113,10 +113,13 @@ func3_dict = {
 
 def valid_imm(n):
     numlist = ['0','1','2','3','4','5','6','7','8','9','-','.']
-    for i in n:
+    index = 0
+    while index < len(n):
+        i = n[index]
         if i not in numlist:
-            print("Syntax Error: imm value is not a number on line",line_no,'\n',"Note: if you were giving in a label, it might be undefined in code!")
+            print("Syntax Error: imm value is not a number on line", line_no, '\n', "Note: if you were giving in a label, it might be undefined in code!")
             sys.exit()
+        index += 1
 
 
 # decimal to binary with sign ext converter
@@ -160,10 +163,14 @@ def R_type_encoder(token_1):
     if (len(token_2) == 3) and ('' in token_2):
         print('Syntax Error: missing regname or imm value on line',line_no)
         sys.exit()
-    for i in token_2:
+    index = 0
+    while index < len(token_2):
+        i = token_2[index]
         if i not in registers_dict:
-            print("Error: illegal register name used on line",line_no)
+            print("Error: illegal register name used on line", line_no)
             sys.exit()
+        index += 1
+
     rd = registers_dict[token_2[0]]
     rs1 = registers_dict[token_2[1]]
     rs2 = registers_dict[token_2[2]]
@@ -411,10 +418,14 @@ def Bonus_type_encoder(token_1):
         if (len(token_2) == 3) and ('' in token_2):
             print('Syntax Error: missing regname or imm value on line',line_no)
             sys.exit()
-        for i in token_2:
+        index = 0
+        while index < len(token_2):
+            i = token_2[index]
             if i not in registers_dict:
-                print("Error: illegal register name used on line",line_no)
+                print("Error: illegal register name used on line", line_no)
                 sys.exit()
+            index += 1
+
         rd = registers_dict[token_2[0]]
         rs1 = registers_dict[token_2[1]]
         rs2 = registers_dict[token_2[2]]
@@ -433,10 +444,14 @@ def Bonus_type_encoder(token_1):
         if (len(token_2) == 2) and ('' in token_2):
             print('Syntax Error: missing regname or imm value on line',line_no)
             sys.exit()
-        for i in token_2:
+        index = 0
+        while index < len(token_2):
+            i = token_2[index]
             if i not in registers_dict:
-                print("Error: illegal register name used on line",line_no)
+                print("Error: illegal register name used on line", line_no)
                 sys.exit()
+            index += 1
+            
         rd = registers_dict[token_2[0]]
         rs1 = registers_dict[token_2[1]]
         
