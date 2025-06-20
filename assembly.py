@@ -163,10 +163,14 @@ def R_type_encoder(token_1):
     if (len(token_2) == 3) and ('' in token_2):
         print('Syntax Error: missing regname or imm value on line',line_no)
         sys.exit()
-    for i in token_2:
+    index = 0
+    while index < len(token_2):
+        i = token_2[index]
         if i not in registers_dict:
-            print("Error: illegal register name used on line",line_no)
+            print("Error: illegal register name used on line", line_no)
             sys.exit()
+        index += 1
+        
     rd = registers_dict[token_2[0]]
     rs1 = registers_dict[token_2[1]]
     rs2 = registers_dict[token_2[2]]
