@@ -349,8 +349,6 @@ def U_type_encoder(token_1):
     
     binstr = imm + rd + op_code + '\n'
     outputfile.write(binstr)
-
-    
     PrgC = PrgC + 4
     
 
@@ -448,8 +446,6 @@ def Bonus_type_encoder(token_1):
         
 
 def Label_type_encoder(opname,token_1):
-    
-    
     token_1.remove(opname)
     new_line = " ".join(token_1)
     instr_identifier(new_line)
